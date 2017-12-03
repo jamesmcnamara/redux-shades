@@ -1,0 +1,10 @@
+{
+  "passPerPreset": true,
+    "plugins": [
+    ],
+    "presets": [
+      "env",
+      "babel-preset-flow",
+      "stage-0"
+    ]
+}

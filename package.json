@@ -1,0 +1,37 @@
+{
+  "name": "redux-shades",
+  "version": "1.0.1",
+  "description": "Redux integration for the `shades` library",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "",
+    "compile": "babel src --out-dir lib"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jamesmcnamara/redux-shades.git"
+  },
+  "keywords": [
+    "redux",
+    "shades",
+    "immutable",
+    "lenses",
+    "state",
+    "management"
+  ],
+  "author": "James McNamara",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jamesmcnamara/redux-shades/issues"
+  },
+  "homepage": "https://github.com/jamesmcnamara/redux-shades#readme",
+  "devDependencies": {
+    "babel-preset-flow": "^6.23.0",
+    "babel-preset-stage-0": "^6.24.1",
+    "babel-register": "^6.26.0"
+  },
+  "dependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.6.1"
+  }
+}
