@@ -22,26 +22,24 @@ const capitalize = s => s[0].toUpperCase() + s.slice(1)
 export const batch = createAction('batch action handler for redux shades', 
   (...args) => args)
 
-function createReducerFunction<S: Object>(reducerObj: $ReducerMap<S>, initialState: ?S) {
+const createReducerFunction = <S: Object>(reducerObj: $ReducerMap<S>, initialState: ?S) =>
   // $FlowFixMe
-  return function reducer<P>(state: ?S = initialState, action: ?$Action<P>): ?S  { 
-    if (action && action.type === reduxActBatch.toString() && Array.isArray(action.payload))  {
+  function reducer<P>(state: ?S = initialState, action: ?$Action<P>): ?S { 
+    if (action 
+      && (action.type === reduxActBatch.toString() || action.type === batch.toString())
+      && Array.isArray(action.payload)) {
+
       return action.payload.reduce(reducer, state)
     }
 
-    if (action && action.type === batch.toString() && Array.isArray(action.payload))  {
-      return action.payload.reduce(reducer, state)
-    }
-    
     if (action && action.type) {
       return (reducerObj[action.type] || last)
-        (action && action.payload)
-        (state || initialState)
+      (action && action.payload)
+      (state || initialState)
     }
     
     return state
   }
-}
 
 
 class ActionCreator<S: Object> {
