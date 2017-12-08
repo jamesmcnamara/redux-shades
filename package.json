@@ -5,7 +5,10 @@
   "main": "lib/index.js",
   "scripts": {
     "test": "mocha --require babel-register",
-    "compile": "babel src --out-dir lib"
+    "compile": "babel src --out-dir lib",
+    "preversion": "npm test",
+    "version": "npm run compile",
+    "postversion": "git push origin master"
   },
   "repository": {
     "type": "git",
